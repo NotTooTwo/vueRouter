@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <div class="back"><span @click=goBack>back</span></div>
-    <router-view/>
+    <keep-alive>
+    <router-view v-if="$route.meta.keepAlive"/>    
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"/>  
+    <!-- http://www.jb51.net/article/126437.htm 路由缓存       -->
   </div>
 </template>
 

@@ -1,10 +1,11 @@
 <template>
   <div class="child">
-    <button @click=showP>show</button>
+    <h1>router index</h1>    
+    <button @click=showP>动态组件 show</button>
     <div v-if='isShowP'>
       <indexP></indexP>
     </div>
-    <h1 v-for = 'n in 100'>router index</h1>
+    <router-view></router-view>
       
   </div>
 </template>
@@ -12,7 +13,7 @@
 <script>
 
 export default {
-  name: 'secondChild',
+  name: 'routerIndex',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -27,8 +28,8 @@ export default {
   },
   components:{
     'indexP':function(res){
-      console.log('加载中')
        var a=  require(['./indexP.vue'],res);
+      console.log(a)       
     }
   }
 

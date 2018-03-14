@@ -2,11 +2,13 @@
   <div class="child">
     <h1>child</h1>
     <h2>count : {{count}}</h2>
+    <div class="box">
     <button @click='add'>add</button>
-    <div>
+    </div>
+    <div class="box">
       <button @click='sendMsg'>自定义事件</button>
     </div>
-    <div>
+    <div class="box">
       <input type="text" v-model="childVal">
     </div>
   </div>
@@ -70,5 +72,10 @@ a {
   padding: 10px;
   border: 1px solid #42b983;
 
+}
+.box{
+  padding: 12px;
+  border: 1px solid #ddd;
+  margin : 10px auto
 }
 </style>
