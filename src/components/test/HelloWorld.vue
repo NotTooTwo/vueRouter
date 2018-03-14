@@ -2,11 +2,13 @@
   <div class="hello">
     <h1>father</h1>
     <h2>child count ：{{childNum}}</h2>
+    <h2> vuex count:{{$store.state.count}} <br>   </h2>    
     <!-- 子组件给父组件传参：子组件内(add()函数)$emit触发父组件的预定义的触发函数 -->
     <Child :countNum=childNum v-on:childCount="countChildNum"></Child>
     <h2>child input value：{{msg||'null'}}</h2>
     <second-child :countNum=childNum></second-child>
-    <router-link to='/routerIndex'>go routerIndex</router-link>    
+    <router-link to='/routerIndex'>go routerIndex</router-link>   <br> 
+    <router-link to='/vuexIndex'>go vuexIndex</router-link>    
   </div>
 </template>
 

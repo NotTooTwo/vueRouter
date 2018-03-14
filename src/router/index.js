@@ -7,6 +7,9 @@ import SecondChild from '@/components/routerTest/index/secondChild'
 
 import RouterMain from '@/components/routerTest/main/routerMain'
 import RedirectPage from '@/components/routerTest/main/redirectPage'
+
+// vuex
+import VuexIndex from '@/components/vuex/index'
 Vue.use(Router)
 
 export default new Router({
@@ -56,6 +59,11 @@ export default new Router({
             }
           ]
 
+    },
+    {
+      path:'/vuexIndex',
+      name:'VuexIndex',
+      component:VuexIndex
     }
   ],
 })
