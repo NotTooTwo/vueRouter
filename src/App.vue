@@ -30,7 +30,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   padding-top: 50px;
   position: relative;
 }
@@ -47,5 +46,6 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 999;
 }
 </style>

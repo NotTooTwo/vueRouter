@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// vuex
+import VuexIndex from '@/components/vuex/index'
+Vue.use(Router)
+
 import HelloWorld from '@/components/test/HelloWorld'
 import RouterIndex from '@/components/routerTest/index/routerIndex'
 import IndexChild from '@/components/routerTest/index/indexChild'
@@ -8,9 +12,7 @@ import SecondChild from '@/components/routerTest/index/secondChild'
 import RouterMain from '@/components/routerTest/main/routerMain'
 import RedirectPage from '@/components/routerTest/main/redirectPage'
 
-// vuex
-import VuexIndex from '@/components/vuex/index'
-Vue.use(Router)
+import Debouce from '@/components/debouce/index'
 
 export default new Router({
   routes: [
@@ -64,6 +66,11 @@ export default new Router({
       path:'/vuexIndex',
       name:'VuexIndex',
       component:VuexIndex
+    },
+    {
+      path:'/debouce',
+      name:'Debouce',
+      component:Debouce
     }
   ],
 })
