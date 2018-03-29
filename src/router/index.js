@@ -4,7 +4,8 @@ import Router from 'vue-router'
 import VuexIndex from '@/components/vuex/index'
 Vue.use(Router)
 
-import HelloWorld from '@/components/test/HelloWorld'
+import DemoList from '@/components/index'
+import Communication from '@/components/communication/index'
 import RouterIndex from '@/components/routerTest/index/routerIndex'
 import IndexChild from '@/components/routerTest/index/indexChild'
 import SecondChild from '@/components/routerTest/index/secondChild'
@@ -14,12 +15,22 @@ import RedirectPage from '@/components/routerTest/main/redirectPage'
 
 import Debouce from '@/components/debouce/index'
 
+import Grid from '@/components/grid/index'
+
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld,
+      name: 'DemoList',
+      component: DemoList,
+      meta: {
+        keepAlive: true
+      }
+    },
+    {
+      path: '/Communication',
+      name: 'Communication',
+      component: Communication,
       meta: {
         keepAlive: true
       }
@@ -71,6 +82,11 @@ export default new Router({
       path:'/debouce',
       name:'Debouce',
       component:Debouce
+    },
+    {
+      path:'/grid',
+      name:'Grid',
+      component:Grid
     }
   ],
 })

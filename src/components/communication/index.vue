@@ -7,9 +7,6 @@
     <Child :countNum=childNum v-on:childCount="countChildNum"></Child>
     <h2>child input value：{{msg||'null'}}</h2>
     <second-child :countNum=childNum></second-child>
-    <router-link to='/routerIndex'>go routerIndex</router-link>   <br> 
-    <router-link to='/vuexIndex'>go vuexIndex</router-link>    <br>
-    <router-link to='/debouce'> debouce + regexp + throttle</router-link>    
   </div>
 </template>
 
