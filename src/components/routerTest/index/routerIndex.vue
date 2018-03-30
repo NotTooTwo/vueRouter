@@ -29,7 +29,7 @@ export default {
   components:{
     'indexP':function(res){
        var a=  require(['./indexP.vue'],res);
-      console.log(a)       
+      a.then(function(){console.log('asyn load end')},function(){console.log('asyn load error')})
     }
   }
 

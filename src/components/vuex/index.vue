@@ -1,6 +1,7 @@
 <template>
   <div class="child">
     <h1>vuexIndex</h1>  
+    <nameSpaced></nameSpaced>
     <VuexChild>
       <div>
         <button @click="aAsynTest">a asyn action test</button>
@@ -36,6 +37,7 @@
 
 <script>
 import VuexChild from "./child"
+import nameSpaced from "./nameSpaced"
 import {mapState, mapGetters, mapActions} from "vuex"
 export default {
   name: 'vuexIndex',
@@ -47,7 +49,6 @@ export default {
     }
   },
   created(){
-    console.log(this.$store.state.count)
   },
   // 获取getter
   // computed: {
@@ -75,7 +76,7 @@ export default {
     }),
     ...mapGetters(['screenListByIsBoss','screenListById'])
   },
-  components:{VuexChild},
+  components:{ VuexChild , nameSpaced }, 
   methods:{
     ...mapActions({
       countUp:'increment'

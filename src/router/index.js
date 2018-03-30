@@ -4,25 +4,27 @@ import Router from 'vue-router'
 import VuexIndex from '@/components/vuex/index'
 Vue.use(Router)
 
-import DemoList from '@/components/index'
-import Communication from '@/components/communication/index'
-import RouterIndex from '@/components/routerTest/index/routerIndex'
-import IndexChild from '@/components/routerTest/index/indexChild'
-import SecondChild from '@/components/routerTest/index/secondChild'
+// import DemoList from '@/components/index'
+// import Communication from '@/components/communication/index'
+// import RouterIndex from ''
+// import IndexChild from '@/components/routerTest/index/indexChild'
+// import SecondChild from '@/components/routerTest/index/secondChild'
 
-import RouterMain from '@/components/routerTest/main/routerMain'
-import RedirectPage from '@/components/routerTest/main/redirectPage'
+// import RouterMain from '@/components/routerTest/main/routerMain'
+// import RedirectPage from '@/components/routerTest/main/redirectPage'
 
-import Debouce from '@/components/debouce/index'
+// import Debouce from '@/components/debouce/index'
 
-import Grid from '@/components/grid/index'
+// import Grid from '@/components/grid/index'
+
+
 
 export default new Router({
   routes: [
     {
       path: '/',
       name: 'DemoList',
-      component: DemoList,
+      component: () => import('@/components/index'),          
       meta: {
         keepAlive: true
       }
@@ -30,23 +32,30 @@ export default new Router({
     {
       path: '/Communication',
       name: 'Communication',
-      component: Communication,
+      component: () => import('@/components/communication/index'),          
       meta: {
         keepAlive: true
       }
     },
     {
       path: '/routerIndex',
-      component: RouterIndex,
+      component: ()=>import('@/components/routerTest/index/routerIndex'),
       children:[
         {
           path:'/',
-          component: IndexChild          
+          component: () => import('@/components/routerTest/index/indexChild'),          
         },
         {
           path:'/secondChild/:name',
           name:'SecondChild',
-          component:SecondChild,
+          component: () => import('@/components/routerTest/index/secondChild'),
+          props:true
+        },
+        {
+          path:'/asynPage',
+          name:'asynPage',
+          // component: resolve=> require(['@/components/routerTest/index/asynPage'],resolve),
+          component: () => import('@/components/routerTest/index/asynPage'),
           props:true
         }
       ],
@@ -58,17 +67,17 @@ export default new Router({
     },
     {
       path:'/routerMain',
-      component:RouterMain,
+      component:() => import('@/components/routerTest/main/routerMain'),
       children:[
             {
               path:'/',
-              component:RedirectPage
+              component:() => import('@/components/routerTest/main/redirectPage'),
             },
             {
               path:'/redirectPage/:name',
               redirect: { name: 'SecondChild' },
               // props:true,
-              component:RedirectPage
+              component:() => import('@/components/routerTest/main/redirectPage'),
             }
           ]
 
@@ -76,17 +85,17 @@ export default new Router({
     {
       path:'/vuexIndex',
       name:'VuexIndex',
-      component:VuexIndex
+      component:()=>import('@/components/vuex/index')
     },
     {
       path:'/debouce',
       name:'Debouce',
-      component:Debouce
+      component:()=>import('@/components/debouce/index')
     },
     {
       path:'/grid',
       name:'Grid',
-      component:Grid
+      component:()=>import("@/components/grid/index")
     }
   ],
 })

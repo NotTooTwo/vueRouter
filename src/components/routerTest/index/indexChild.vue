@@ -5,6 +5,8 @@
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque error, itaque modi est asperiores quae perspiciatis totam optio dolores? Esse aspernatur odio numquam eos vero ut modi eum molestiae deleniti.
     </div>
     <router-link to='/secondChild/fromScondChild' replace>to secondChild</router-link>
+    <router-link to='/asynPage' replace>to asynPage</router-link>
+    
   </div>
 </template>
 
